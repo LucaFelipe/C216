@@ -1,6 +1,14 @@
 alunos = []
-contador_curso = {}  # dicionário para controlar a sequência por curso
+contador_curso = {} 
 
+LOG_FILE = "logs.txt"
+
+def salvar_log(mensagem: str):
+    """Salva mensagens no arquivo de log e mostra na tela."""
+    print(mensagem)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(mensagem + "\n")
+        
 def cadastrar_aluno():
     nome = input("Digite o nome do aluno: ")
     email = input("Digite o e-mail do aluno: ")
