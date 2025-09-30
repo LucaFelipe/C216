@@ -1,0 +1,14 @@
+# Usar imagem oficial do Python
+FROM python:3.11-slim
+
+# Criar diretório de trabalho
+WORKDIR /app
+
+# Copiar os arquivos do projeto
+COPY . /app
+
+# Garantir que o logs.txt exista
+RUN touch logs.txt
+
+# Definir o comando para rodar o script
+CMD ["python", "sistema_faculdade.py"]
