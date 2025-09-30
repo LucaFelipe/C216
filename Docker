@@ -1,14 +1,17 @@
 # Usar imagem oficial do Python
 FROM python:3.11-slim
 
-# Criar diretório de trabalho
+# Criar diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copiar os arquivos do projeto
-COPY . /app
+# Copiar a pasta cadastro_aluno para dentro do container
+COPY cadastro_aluno /app/cadastro_aluno
 
-# Garantir que o logs.txt exista
-RUN touch logs.txt
+# Garantir que o logs.txt exista dentro da pasta
+RUN touch /app/cadastro_aluno/logs.txt
+
+# Definir o diretório de execução
+WORKDIR /app/cadastro_aluno
 
 # Definir o comando para rodar o script
 CMD ["python", "sistema_faculdade.py"]
